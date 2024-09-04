@@ -1,7 +1,7 @@
 package facts.nutrintion.project.service;
 
 import facts.nutrintion.project.Favorite;
-import facts.nutrintion.project.dto.response.FavoriteRecipesDto;
+import facts.nutrintion.project.dto.response.FavoriteRecipesResponse;
 import facts.nutrintion.project.entity.Recipe;
 import facts.nutrintion.project.entity.User;
 import facts.nutrintion.project.repository.FavoriteRepository;
@@ -40,13 +40,13 @@ public class FavoriteService {
         return "added to favorite";
     }
 
-    public List<FavoriteRecipesDto> showUserFavorites(String username) {
+    public List<FavoriteRecipesResponse> showUserFavorites(String username) {
         List<Recipe>favoriteRecipes = favoriteRepository.findByUsername(username);
         if (favoriteRecipes.isEmpty()) {
             return null;
         }
         return favoriteRecipes.stream()
-                .map(recipe -> modelMapper.map(recipe, FavoriteRecipesDto.class))
+                .map(recipe -> modelMapper.map(recipe, FavoriteRecipesResponse.class))
                 .collect(Collectors.toList());
     }
 

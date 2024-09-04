@@ -1,8 +1,9 @@
 package facts.nutrintion.project.controller;
 
+import facts.nutrintion.project.dto.request.RecipeCalculateRequest;
 import facts.nutrintion.project.dto.request.RecipeRequest;
-import facts.nutrintion.project.dto.response.RecipeDto;
-import facts.nutrintion.project.entity.Recipe;
+import facts.nutrintion.project.dto.response.RecipeCalculateResponse;
+import facts.nutrintion.project.dto.response.RecipeResponse;
 import facts.nutrintion.project.service.RecipeService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -21,12 +22,12 @@ public class RecipeController {
     private final RecipeService recipeService;
 
     @GetMapping("/list")
-    public ResponseEntity<List<RecipeDto>> recipeList() {
+    public ResponseEntity<List<RecipeResponse>> recipeList() {
         return ResponseEntity.ok(recipeService.getAllRecipes());
     }
     @PostMapping("/add")
-    public ResponseEntity<RecipeDto> addRecipe(@RequestBody RecipeRequest recipeRequest) {
-        RecipeDto recipe = recipeService.addRecipe(recipeRequest);
+    public ResponseEntity<RecipeResponse> addRecipe(@RequestBody RecipeRequest recipeRequest) {
+        RecipeResponse recipe = recipeService.addRecipe(recipeRequest);
         return ResponseEntity.ok(recipe);
     }
     @PutMapping("/rate_update/{recipeId}/{rate}")
@@ -35,5 +36,14 @@ public class RecipeController {
         return ResponseEntity.ok("updated successfully");
     }
 
+    @PostMapping("/calculate")
+    public ResponseEntity<RecipeCalculateResponse> calculate(@RequestBody RecipeCalculateRequest request) {
+        return ResponseEntity.ok(recipeService.calculateRecipe(request));
+    }
+
+    @GetMapping("/{recipeId}")
+    public ResponseEntity<RecipeResponse> getRecipe(@PathVariable(name = "recipeId") Integer recipeId) {
+        return ResponseEntity.ok(recipeService.getRecipe(recipeId));
+    }
 
 }

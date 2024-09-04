@@ -1,6 +1,6 @@
 package facts.nutrintion.project.controller;
 
-import facts.nutrintion.project.dto.response.FavoriteRecipesDto;
+import facts.nutrintion.project.dto.response.FavoriteRecipesResponse;
 import facts.nutrintion.project.service.FavoriteService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public class FavoriteController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<FavoriteRecipesDto>> showFavorite() {
+    public ResponseEntity<List<FavoriteRecipesResponse>> showFavorite() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return ResponseEntity.ok(favoriteService.showUserFavorites(authentication.getName()));
     }

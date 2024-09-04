@@ -1,14 +1,15 @@
-package facts.nutrintion.project.dto.response;
+package facts.nutrintion.project.dto.request;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class FavoriteRecipesDto {
-    String name;
-    String description;
+public class RecipeCalculateRequest {
+    List<Integer> recipeId;
 }
