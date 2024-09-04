@@ -8,8 +8,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class FactDto {
-    Double carbohydrate;
-    Double protein;
-    Double fat;
+public class FavoriteRecipesResponse {
+    Integer id;
+    String name;
+    String description;
 }
