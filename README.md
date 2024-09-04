@@ -15,9 +15,13 @@ The application is secured using Spring Security. Users must authenticate to acc
 
 ## Technologies Used
 Java 17
+
 Spring Boot 3.x
+
 MySQL
+
 Spring Security
+
 Maven
 ## 
 **Swager Documentation:** http://localhost:8080/swagger-ui/index.html#/
