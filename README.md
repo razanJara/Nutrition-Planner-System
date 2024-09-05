@@ -1,4 +1,4 @@
-# Nutrition Project
+# Nutrition Planner System
 The Nutrition Project is a Java-based application built with Spring Boot. This project provides a RESTful API that allows users to explore various recipes along with their nutritional facts. Users can mark their favorite recipes, log their daily food intake, and calculate their total nutritional intake for a specific day.
 ## Features
 **List Recipes:** Retrieve a list of recipes with detailed nutritional information, including calories, protein, fat, and carbohydrates.
